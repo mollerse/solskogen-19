@@ -1,0 +1,22 @@
+{
+  "name": "solskogen-19",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo index.js --live --open",
+    "pack:compile": "google-closure-compiler --js=index.js --js_output_file=out.js -O ADVANCED --externs externs.js",
+    "pack:squash": "ruby ./squash.rb out.js packed.html",
+    "pack": "npm run pack:compile && npm run pack:squash",
+    "postpack": "rm out.js"
+  },
+  "keywords": [],
+  "author": "Stian Møllersen <stian.moellersen@gmail.com>",
+  "license": "CC-BY-NC-SA-4.0",
+  "devDependencies": {
+    "budo": "^11.6.2",
+    "eslint": "^6.0.1",
+    "google-closure-compiler": "^20190618.0.0",
+    "prettier": "^1.18.2"
+  }
+}
